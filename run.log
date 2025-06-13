@@ -1,0 +1,103 @@
+clear
+    2  hl-smi 
+    3  sudo apt list --installed | grep habana 
+    4  lspci 
+    5  lspci | grep acc 
+    6  uname -r 
+    7  lsb-release -a 
+    8  lsb-release a 
+    9  clear
+   10  lsb_release -a 
+   11  uname -r 
+   12  ls
+   13  clear
+   14  wget -nv https://vault.habana.ai/artifactory/gaudi-installer/1.21.1/habanalabs-installer.sh
+   15  chmod +x habanalabs-installer.sh
+   16  ./habanalabs-installer.sh install --type base
+   17  sudo apt list --installed | grep habana 
+   18  clear
+   19  git clone https://github.com/HabanaAI/hccl_demo.git
+   20  cd hccl_demo/
+   21  make clean 
+   22  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 8 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   23  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   24  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   25  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   26  clear
+   27  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   28  clear
+   29  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   30  clear
+   31  sudo shutdown now 
+   32  clear
+   33  ls
+   34  cd hccl_demo/
+   35  ls
+   36  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   37  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   38  clear
+   39  HCCL_OVER_OFI=1 HCCL_GAUDI_DIRECT=1 ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   40  clear
+   41  make clean 
+   42  HCCL_OVER_OFI=1 HCCL_GAUDI_DIRECT=1 ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   43  HCCL_GAUDI_DIRECT=1 ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   44  clear
+   45  make clean 
+   46  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 8 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   47  clear
+   48  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 8 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   49  clear
+   50  grep -r "domain" 
+   51  sudo hl-smi
+   52  git clone https://github.com/HabanaAI/hccl_demo.git
+   53  cd hccl_demo/
+   54  make clean
+   55  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 8 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   56  hl-smi
+   57  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   58  make clean
+   59  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 4
+   60  hl-smo
+   61  hl-smi
+   62  clear
+   63  ls
+   64  cd hccl_demo/
+   65  clear
+   66  ls
+   67  make clean 
+   68  clear
+   69  ls
+   70  python3 run_hccl_demo.py --help 
+   71  clear
+   72  ENABLE_CONSOLE=true HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --scaleup_group_size 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   73  clear
+   74  ls
+   75  cd ~
+   76  clear
+   77  ls
+   78  docker ps 
+   79  clear
+   80  sudo dmidecode -t system | grep 'Manufacturer\|Product Name'
+   81  HABANA_VISIBLE_MODULES=2,3,6,7 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   82  cd hccl_demo/
+   83  HABANA_VISIBLE_MODULES=2,3,6,7 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   84  HABANA_VISIBLE_MODULES=0,1,2,3 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 4 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   85  clear
+   86  HABANA_VISIBLE_MODULES=0,1,2,3 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 2 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   87  clear
+   88  cd ~
+   89  clear
+   90  HABANA_VISIBLE_MODULES=0,1 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 2 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   91  cd hccl_demo/
+   92  ls
+   93  HABANA_VISIBLE_MODULES=0,1 HCCL_COMM_ID=127.0.0.1:5555 python3 run_hccl_demo.py --nranks 2 --node_id 0 --size 256m --test all_reduce --loop 1000 --ranks_per_node 8
+   94  clear
+   95  w
+   96  clear
+   97  exit
+   98  sudo su
+   99  ls
+  100  hl-smi
+  101  history
+  102  history 2>&1 | tee run.log
+
